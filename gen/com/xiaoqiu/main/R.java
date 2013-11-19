@@ -900,28 +900,29 @@ public final class R {
         public static final int search_weibo_bg_press=0x7f020027;
         public static final int searchbar_background=0x7f020028;
         public static final int searh_button_back=0x7f020029;
-        public static final int square_search_filter_bg=0x7f02002a;
-        public static final int square_search_filter_nor=0x7f02002b;
-        public static final int square_search_filter_press=0x7f02002c;
-        public static final int title_button=0x7f02002d;
-        public static final int title_button_normal=0x7f02002e;
-        public static final int title_button_selected=0x7f02002f;
-        public static final int title_img=0x7f020030;
-        public static final int triangle=0x7f020031;
-        public static final int triangle_page=0x7f020032;
-        public static final int widget_block_selected=0x7f020033;
+        public static final int splash_img=0x7f02002a;
+        public static final int square_search_filter_bg=0x7f02002b;
+        public static final int square_search_filter_nor=0x7f02002c;
+        public static final int square_search_filter_press=0x7f02002d;
+        public static final int title_button=0x7f02002e;
+        public static final int title_button_normal=0x7f02002f;
+        public static final int title_button_selected=0x7f020030;
+        public static final int title_img=0x7f020031;
+        public static final int triangle=0x7f020032;
+        public static final int triangle_page=0x7f020033;
+        public static final int widget_block_selected=0x7f020034;
     }
     public static final class id {
         public static final int ScrollView01=0x7f080004;
         public static final int allimageview=0x7f080000;
         public static final int allname=0x7f080001;
-        public static final int btnCancel=0x7f08000f;
+        public static final int btnCancel=0x7f080010;
         public static final int detail_activity_img=0x7f080003;
         public static final int edittext=0x7f08000c;
-        public static final int etSearchText=0x7f080013;
-        public static final int ivDelete=0x7f080014;
-        public static final int ivSearchIcon=0x7f080011;
-        public static final int lySearchInput=0x7f080010;
+        public static final int etSearchText=0x7f080014;
+        public static final int ivDelete=0x7f080015;
+        public static final int ivSearchIcon=0x7f080012;
+        public static final int lySearchInput=0x7f080011;
         public static final int search_back=0x7f080009;
         public static final int search_button=0x7f08000d;
         public static final int search_logo=0x7f08000b;
@@ -930,9 +931,10 @@ public final class R {
         public static final int singleimageview=0x7f080005;
         public static final int singletext=0x7f080007;
         public static final int singletextview=0x7f080006;
-        public static final int testtt=0x7f08000e;
+        public static final int splash_img=0x7f08000e;
+        public static final int testtt=0x7f08000f;
         public static final int text1=0x7f080002;
-        public static final int tvSearchText=0x7f080012;
+        public static final int tvSearchText=0x7f080013;
     }
     public static final class layout {
         public static final int all_single_show=0x7f030000;
@@ -941,8 +943,9 @@ public final class R {
         public static final int detail_show=0x7f030003;
         public static final int main=0x7f030004;
         public static final int search_main=0x7f030005;
-        public static final int test=0x7f030006;
-        public static final int title_layout=0x7f030007;
+        public static final int splash=0x7f030006;
+        public static final int test=0x7f030007;
+        public static final int title_layout=0x7f030008;
     }
     public static final class string {
         public static final int app_name=0x7f070000;
