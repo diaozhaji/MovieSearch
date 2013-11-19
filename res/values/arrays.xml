@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="choiceitems">
+        <item >搜电影</item>
+        <item >搜音乐</item>
+        <item >搜书籍</item>
+    </string-array>
+    
+</resources>

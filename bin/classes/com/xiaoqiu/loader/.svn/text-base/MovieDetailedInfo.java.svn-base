@@ -1,0 +1,87 @@
+package com.cubic.resourse;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+import com.cubic.pojo.MovieDetailedPojo;
+
+/**
+ * 
+ * @author Abel 传入对应点击选项的 XML地址 及图片URL 解析对应XML 将数据存入相关电影的实体
+ */
+
+public class MovieDetailedInfo {
+	/**
+	 * 
+	 * @param singleurl
+	 *            包含详细信息的XML地址
+	 * @param imageUrl
+	 *            被点击项的图片
+	 * @return 存入数据的泛型LIST
+	 */
+	public List<MovieDetailedPojo> findXmlTwo(String singleUrl, String imageUrl)
+			throws IOException, ParserConfigurationException, SAXException {
+		List<MovieDetailedPojo> result = new ArrayList<MovieDetailedPojo>();
+		MovieDetailedPojo movieDetailedPojo = new MovieDetailedPojo();
+		URL url = new URL(singleUrl);
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder = factory.newDocumentBuilder();
+		Document doc = builder.parse(url.openStream());
+		NodeList books = doc.getChildNodes();
+		if (books != null) {
+			for (int i = 0; i < books.getLength(); i++) {
+				Node book = books.item(i);
+				if (book.getNodeType() == Node.ELEMENT_NODE) {
+					for (Node node = book.getFirstChild(); node != null; node = node
+							.getNextSibling()) {
+						if (node.getNodeType() == Node.ELEMENT_NODE) {
+							if (node.getNodeName().equals("title")) {
+								String title = node.getFirstChild()
+										.getNodeValue();
+								movieDetailedPojo.setMovieName(title);
+							}
+							if (node.getNodeName().equals("author")) {
+								NodeList nodeList = node.getChildNodes();
+								Element ee = (Element) nodeList.item(1);
+								String name = ee.getFirstChild().getNodeValue();
+								movieDetailedPojo.setAuthor(name);
+							}
+							if (node.getNodeName().equals("db:attribute")) {
+								if (node.getAttributes().getNamedItem("name")
+										.getNodeValue().equals("website")) {
+									String httpString = node.getFirstChild()
+											.getNodeValue();
+									movieDetailedPojo.setWebSite(httpString);
+								}
+								if (node.getAttributes().getNamedItem("name")
+										.getNodeValue().equals("writer")) {
+									String writer = node.getFirstChild()
+											.getNodeValue();
+									movieDetailedPojo.setWriter(writer);
+								}
+							}
+							if (node.getNodeName().equals("summary")) {
+								String summary = node.getFirstChild()
+										.getNodeValue();
+								movieDetailedPojo.setSummary(summary);
+
+							}
+							movieDetailedPojo.setImageUrl(imageUrl);
+						}
+					}
+				}
+				result.add(movieDetailedPojo);
+			}
+		}
+		return result;
+	}
+}

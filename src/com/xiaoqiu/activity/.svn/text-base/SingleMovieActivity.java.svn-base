@@ -1,0 +1,85 @@
+package com.cubic.singlemovie;
+
+import java.io.InputStream;
+import java.net.URL;
+import java.util.List;
+
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.cubic.listener.BackButtonOnClickListner;
+import com.cubic.main.R;
+import com.cubic.pojo.MovieDetailedPojo;
+import com.cubic.resourse.MovieDetailedInfo;
+
+/**
+ * 
+ * @author Abel 2010-09-02 用于电影详细信息显示的页面
+ * 
+ */
+
+public class SingleMovieActivity extends Activity {
+	private TextView singleTextView;// 显示电影 名称 导演等信息的 文本控件
+	private TextView singletext;// 显示电影内容简介的文本控件
+	private ImageView imageView;// 显示电影图片的图片控件
+	private Button button;// "返回 "按钮
+	private List<MovieDetailedPojo> list; // 承载电影所有信息的泛型LIST
+
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.moviesingleshow);
+		Bundle bundle;
+		singleTextView = (TextView) findViewById(R.id.singletextview);
+		singletext = (TextView) findViewById(R.id.singletext);
+		imageView = (ImageView) findViewById(R.id.singleimageview);
+		button = (Button) findViewById(R.id.button);
+		bundle = getIntent().getExtras();
+		String url = bundle.getString("url")
+				+ "?apikey=06a86509c506124313f92f1d4f1236c9";
+		String imageUrl = bundle.getString("imageurl");
+		MovieDetailedInfo detailedInfo = new MovieDetailedInfo();
+		try {
+			list = detailedInfo.findXmlTwo(url, imageUrl);
+			for (MovieDetailedPojo m : list) {// 遍历实体类.读出相应信息,用于控件显示
+				if (m.getWebSite() == null) {//网址为空时: 为 "不详"
+					m.setWebSite("不详");
+				}
+				if (m.getWriter() == null) {//编剧为空时: 为"不详"
+					m.setWriter("不详");
+				}
+				if(m.getAuthor()==null){//导演为空时:为"不详"
+					m.setAuthor("不详");
+				}
+				singleTextView.setText("影视:" + m.getMovieName() + "\n导演:"
+						+ m.getAuthor() + "\n编剧:" + m.getWriter() + ".."
+						+ "\n官方网站:" + m.getWebSite());
+				String jianjieString = m.getSummary();
+				if (jianjieString.length() > 264) {/*
+													 * 如果内容简介显示的文本超过264个字则只取264个字
+													 * 否则全取
+													 */
+					singletext.setText("电影简介:\n"
+							+ m.getSummary().substring(0, 264) + "...");
+				} else {
+					singletext.setText("电影简介:\n" + m.getSummary());
+				}
+				URL aryURI = new URL(m.getImageUrl());
+				InputStream is = aryURI.openStream();
+				Bitmap bm = BitmapFactory.decodeStream(is);
+				if(bm==null){
+					imageView.setBackgroundColor(R.drawable.nopicture);
+				}
+				is.close();
+				imageView.setImageBitmap(bm);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		button.setOnClickListener(new BackButtonOnClickListner(this));
+	}
+}

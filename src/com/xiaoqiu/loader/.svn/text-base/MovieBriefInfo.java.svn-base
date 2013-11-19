@@ -1,0 +1,71 @@
+package com.cubic.resourse;
+
+import java.io.IOException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+import com.cubic.pojo.MovieBriefPojo;
+
+/**
+ * 
+ * @author Abel 2010-09-02 依据关键字(搜索条件) 返回对应API信息 并存入相应实体
+ * 
+ */
+public class MovieBriefInfo {
+	/**
+	 * 
+	 * anthor Abel 2010-09-02
+	 * 
+	 * @param key
+	 *            搜索的关键字
+	 * @return 已存入数据的泛型LIST
+	 */
+	public List<MovieBriefPojo> findXml(String key)
+			throws ParserConfigurationException, SAXException, IOException {
+		List<MovieBriefPojo> result = new ArrayList<MovieBriefPojo>();
+		String ch = URLEncoder.encode(key, "utf-8");
+		String uString=	"http://api.douban.com/movie/subjects?apikey=06a86509c506124313f92f1d4f1236c9&tag="
+			+ ch + "&start-index=1";
+		URL url = new URL(uString);
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder = factory.newDocumentBuilder();
+		Document doc = builder.parse(url.openStream());
+		NodeList entrys = doc.getElementsByTagName("entry");
+		for (int i = 0; i < entrys.getLength(); i++) {// 取出XML的信息存入实体
+			Object item = entrys.item(i);
+			if (item instanceof Element) {
+				MovieBriefPojo movieBriefPojo = new MovieBriefPojo();
+				Element entry = (Element) entrys.item(i);
+				movieBriefPojo.setMovieName(entry.getElementsByTagName("title")
+						.item(0).getFirstChild().getNodeValue());
+				movieBriefPojo.setFirstUrl(entry.getElementsByTagName("id")
+						.item(0).getFirstChild().getNodeName());
+				Element node = (Element) entry.getElementsByTagName("link")
+						.item(2);
+				Element nodeFirstUrl = (Element) entry.getElementsByTagName(
+						"link").item(0);
+				movieBriefPojo.setFirstUrl(nodeFirstUrl.getAttribute("href"));
+				movieBriefPojo.setImageUrl(node.getAttribute("href"));
+				try {
+					Element entryauthor = (Element) entry.getElementsByTagName(
+							"author").item(0);
+					movieBriefPojo.setAuthorName(entryauthor
+							.getElementsByTagName("name").item(0)
+							.getFirstChild().getNodeValue());
+				} catch (Exception e) {// 当导演名称为空时 则指定导演为"不详"
+					movieBriefPojo.setAuthorName("不详");
+				}
+				result.add(movieBriefPojo);
+			}
+		}
+		return result;
+	}
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="DefaultLocale">
+        <ignore path="src\com\xiaoqiu\utils\FileHelper.java" />
+    </issue>
+    <issue id="HandlerLeak">
+        <ignore path="src/com/xiaoqiu/activity/DetailActivity.java" />
+        <ignore path="src\com\xiaoqiu\activity\DetailActivity.java" />
+        <ignore path="src\com\xiaoqiu\activity\MainActivity.java" />
+    </issue>
+</lint>

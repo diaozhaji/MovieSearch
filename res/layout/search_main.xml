@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/searchbar"
+	android:layout_width="match_parent"
+    android:layout_height="64px"
+    android:background="#f6f6f6" >
+
+    <ImageView
+        android:id="@+id/search_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10px"
+        android:layout_marginTop="13px"
+        android:src="@drawable/searh_button_back" />
+
+    <RelativeLayout
+        android:id="@+id/search_text_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="50px"
+        android:layout_marginBottom="10px"
+        android:layout_marginLeft="10px"
+        android:layout_marginTop="10px"
+        android:background="@drawable/search_text_bg"
+        android:layout_toRightOf="@id/search_back"
+        >
+        <ImageView 
+            android:id="@+id/search_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:layout_centerVertical="true"
+            android:src="@drawable/search_text_search"
+            />
+        
+
+        <EditText
+            android:id="@+id/edittext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"            
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/search_logo"
+            android:background="@null"
+            android:hint="输入片名、主演、导演和演员"
+            android:textSize="15sp" 
+            
+            />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10px"
+        android:layout_marginRight="10px"
+        android:layout_marginTop="13px"
+        android:layout_toRightOf="@id/search_text_layout"
+        android:src="@drawable/search_button_search" />
+
+</RelativeLayout>
