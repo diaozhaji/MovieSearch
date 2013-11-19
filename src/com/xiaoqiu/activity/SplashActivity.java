@@ -10,11 +10,13 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 
 public class SplashActivity extends Activity{
-	ImageView imageview;
+	private ImageView imageview;
+	private TextView tv;
 	private int displayWidth;
 	private int displayHeight;
 	@Override
@@ -33,7 +35,13 @@ public class SplashActivity extends Activity{
         System.out.println(density);
         
         setContentView(R.layout.splash);
-		imageview = (ImageView)findViewById(R.id.splash_img);
+		tv = (TextView)findViewById(R.id.splash_text);
+        tv.setText("your screen height = "+displayHeight +"\n"
+        			+"width = "+displayWidth+"\n"
+        			+"density = "+density);
+        
+        imageview = (ImageView)findViewById(R.id.splash_img);
+		
 		imageview.setOnClickListener(new Button.OnClickListener(){
 			@Override
 			public void onClick(View v) {
