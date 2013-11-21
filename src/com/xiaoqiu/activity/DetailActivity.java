@@ -1,6 +1,9 @@
 package com.xiaoqiu.activity;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
 
@@ -11,13 +14,14 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.xiaoqiu.loader.DetailedInfoLoder;
 import com.xiaoqiu.main.R;
 import com.xiaoqiu.utils.DebugUtil;
-import com.xiaoqiu.entity.MovieDetaileEntity;
+import com.xiaoqiu.entity.MovieDetaileEntityOld;
 
 /**
  * 
@@ -26,6 +30,8 @@ import com.xiaoqiu.entity.MovieDetaileEntity;
  */
 
 public class DetailActivity extends Activity {
+	private final static String TAG = "DetailActivity";
+	
 	private final static int LOAD_BOOK = 1;
 	private final static int LOAD_MUSIC = 2;
 	private final static int LOAD_MOVIE = 3;
@@ -34,7 +40,7 @@ public class DetailActivity extends Activity {
 	private TextView singletext;// 显示内容简介的文本控件
 	private ImageView imageView;// 显示图片的图片控件
 	//private Button button;// "返回 "按钮
-	private List<MovieDetaileEntity> moiveList; // 电影所有信息的泛型LIST
+	private List<MovieDetaileEntityOld> moiveList; // 电影所有信息的泛型LIST
 	private ProgressDialog proDialog;
 
 	private String imageUrl;// 图片的地址
@@ -46,8 +52,12 @@ public class DetailActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.detail_show);
 		initView();
-		initData();
-		addListener();
+		try {
+			initData();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		new Thread(new LoadData()).start();
 		proDialog.show();
@@ -60,7 +70,7 @@ public class DetailActivity extends Activity {
 			int value = message.what;
 			switch (value) {
 			case LOAD_MOVIE:
-				for (MovieDetaileEntity m : moiveList) {
+				for (MovieDetaileEntityOld m : moiveList) {
 					if (m.getWebSite() == null) {// 网址为空时: 为 "不详"
 						m.setWebSite("不详");
 					}
@@ -74,10 +84,15 @@ public class DetailActivity extends Activity {
 					singleTextView.setText("影视:" + m.getTitle() + "\n导演:"
 							+ m.getAuthor() + "\n编剧:" + m.getWriter() + ".."
 							+ "\n官方网站:" + m.getWebSite());
-					String summary = m.getSummary();
-					if (summary.length() > 264) {
-						singletext.setText("简介：\n" + summary.substring(0, 264) + "...");
-					}
+					try{
+						String summary = m.getSummary();
+						if (summary.length() > 264) {
+							singletext.setText("简介：\n" + summary.substring(0, 264) + "...");
+						}
+					} catch (Exception e) {
+						// TODO: handle exception
+					}			
+					
 					
 					try {
 						URL aryURI = new URL(m.getImageUrl());
@@ -113,13 +128,16 @@ public class DetailActivity extends Activity {
 		proDialog.setMessage("请您耐心等待...");
 	}
 
-	private void initData() {
+	private void initData() throws IOException {
 		Bundle bundle = getIntent().getExtras();
 		String type = bundle.getString("type");
 		String id = bundle.getString("url");
+		Log.d(TAG, id);
 		
 		if (type.equals("电影")) {
-			url = "https://api.douban.com/v2/movie/subject/" + id;
+			//url = "https://api.douban.com/v2/movie/subject/" + id;
+			url = "http://192.158.31.250/search/"+id+"/";
+			Log.d(TAG, url);
 		}else if(type.equals("音乐")){
 			url = "https://api.douban.com/v2/music/" + id;
 		}else if(type.equals("书籍"))
@@ -130,8 +148,10 @@ public class DetailActivity extends Activity {
 		DebugUtil.error(url);
 		
 		imageUrl = bundle.getString("imageurl");
-
+		Log.d(TAG, imageUrl);
+		
 		detailedInfo = new DetailedInfoLoder();
+		
 	}
 
 	class LoadData implements Runnable {
@@ -139,11 +159,11 @@ public class DetailActivity extends Activity {
 		@Override
 		public void run() {
 			int choice = 0;
+			Log.d(TAG, "run()");
 			try {
-				if (url.contains("movie")) {
-					moiveList = detailedInfo.findMovieJsonTwo(url, imageUrl);
-					choice = LOAD_MOVIE;
-				} 
+				moiveList = detailedInfo.findMovieJsonTwo(url, imageUrl);
+				choice = LOAD_MOVIE;
+					
 				mHandler.sendEmptyMessage(choice);
 
 			} catch (Exception e) {
@@ -154,7 +174,4 @@ public class DetailActivity extends Activity {
 
 	}
 
-	private void addListener() {
-		
-	}
 }

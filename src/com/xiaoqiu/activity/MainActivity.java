@@ -143,11 +143,12 @@ public class MainActivity extends ListActivity {
 	protected void onListItemClick(ListView l, View view, int position, long id) {
 		mbp = aList.get(position);
 		Intent intent = new Intent();
-		intent.setClass(MainActivity.this, DetailActivity.class);
+		//intent.setClass(MainActivity.this, DetailActivity.class);
+		intent.setClass(MainActivity.this, MovieDetailActivity.class);
 		Bundle bundle = new Bundle();
 		bundle.putString("url", mbp.getFirstUrl().toString());
 		bundle.putString("imageurl", mbp.getImageUrl().toString());
-		bundle.putString("type", "电影");
+		//bundle.putString("type", "电影");
 		intent.putExtras(bundle);
 		startActivity(intent);
 	}

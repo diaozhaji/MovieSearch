@@ -31,7 +31,7 @@ public class SimpleInfoLoder {
 		String ch = URLEncoder.encode(key, "utf-8");
 
 		//String uString = "http://api.douban.com/v2/movie/search?q=" + ch;
-		String uString = "http://192.158.31.250/search/?command="+ch+"&start=0&count=20";
+		String uString = "http://192.158.31.250/search/search/?command="+ch+"&start=0&count=20";
 		URL url = new URL(uString);
 
 		StringBuilder builder = new StringBuilder();

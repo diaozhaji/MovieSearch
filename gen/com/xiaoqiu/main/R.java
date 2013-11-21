@@ -913,29 +913,31 @@ public final class R {
         public static final int widget_block_selected=0x7f020034;
     }
     public static final class id {
-        public static final int ScrollView01=0x7f080004;
+        public static final int ScrollView01=0x7f080005;
         public static final int allimageview=0x7f080000;
         public static final int allname=0x7f080001;
-        public static final int btnCancel=0x7f080011;
+        public static final int btnCancel=0x7f080012;
         public static final int detail_activity_img=0x7f080003;
-        public static final int edittext=0x7f08000c;
-        public static final int etSearchText=0x7f080015;
-        public static final int ivDelete=0x7f080016;
-        public static final int ivSearchIcon=0x7f080013;
-        public static final int lySearchInput=0x7f080012;
-        public static final int search_back=0x7f080009;
-        public static final int search_button=0x7f08000d;
-        public static final int search_logo=0x7f08000b;
-        public static final int search_text_layout=0x7f08000a;
-        public static final int searchbar=0x7f080008;
-        public static final int singleimageview=0x7f080005;
-        public static final int singletext=0x7f080007;
-        public static final int singletextview=0x7f080006;
-        public static final int splash_img=0x7f08000e;
-        public static final int splash_text=0x7f08000f;
-        public static final int testtt=0x7f080010;
+        public static final int detail_summary=0x7f080004;
+        public static final int edittext=0x7f08000d;
+        public static final int etSearchText=0x7f080016;
+        public static final int ivDelete=0x7f080017;
+        public static final int ivSearchIcon=0x7f080014;
+        public static final int layout_title=0x7f080018;
+        public static final int lySearchInput=0x7f080013;
+        public static final int search_back=0x7f08000a;
+        public static final int search_button=0x7f08000e;
+        public static final int search_logo=0x7f08000c;
+        public static final int search_text_layout=0x7f08000b;
+        public static final int searchbar=0x7f080009;
+        public static final int singleimageview=0x7f080006;
+        public static final int singletext=0x7f080008;
+        public static final int singletextview=0x7f080007;
+        public static final int splash_img=0x7f08000f;
+        public static final int splash_text=0x7f080010;
+        public static final int testtt=0x7f080011;
         public static final int text1=0x7f080002;
-        public static final int tvSearchText=0x7f080014;
+        public static final int tvSearchText=0x7f080015;
     }
     public static final class layout {
         public static final int all_single_show=0x7f030000;
