@@ -22,7 +22,7 @@ public class MovieDetailInfoLoader {
 	private static final String TAG = "MovieDetailInfoLoader";
 	
 	public MovieDetailInfoLoader(){
-		Log.d(TAG, "constractor");
+		Log.d(TAG, "constractor()  do thing");
 	}
 	
 	public MovieDetailEntity parserMovieJson(String singleUrl)
@@ -48,15 +48,32 @@ public class MovieDetailInfoLoader {
 			jsonObject = new JSONObject(stringBuilder.toString());
 			Log.d(TAG, stringBuilder.toString());
 			// 电影名称
-			movieDetailedPojo.setTitle(jsonObject.getString("title"));
-			Log.d(TAG, jsonObject.getString("title"));
-			
+			movieDetailedPojo.setTitle(jsonObject.getString("title"));			
 			// 图片url
 			movieDetailedPojo.setImage_medium(jsonObject.getString("image_medium"));
-			Log.d(TAG, jsonObject.getString("image_medium"));
 			// 简介
-			movieDetailedPojo.setSummary(jsonObject.getString("summary"));
-			Log.d(TAG, jsonObject.getString("summary"));
+			movieDetailedPojo.setSummary(jsonObject.getString("summary"));			
+			// 评分
+			movieDetailedPojo.setRating_average(jsonObject.getString("rating_average"));
+			Log.d(TAG, movieDetailedPojo.getRating_average());
+			// 导演
+			movieDetailedPojo.setDirectors(jsonObject.getString("directors"));
+			Log.d(TAG, movieDetailedPojo.getDirectors());
+			//年份
+			movieDetailedPojo.setYear(jsonObject.getString("year"));
+			Log.d(TAG, movieDetailedPojo.getYear());
+			//xxx人看过---人气
+			movieDetailedPojo.setCollect_count(jsonObject.getString("collect_count"));
+			Log.d(TAG, movieDetailedPojo.getCollect_count());
+			//地区
+			movieDetailedPojo.setCountries(jsonObject.getString("countries"));
+			Log.d(TAG, "countriey:"+movieDetailedPojo.getCountries());
+			//类型
+			movieDetailedPojo.setGenres(jsonObject.getString("genres"));
+			Log.d(TAG, "类型:"+movieDetailedPojo.getGenres());
+			//主演
+			movieDetailedPojo.setCasts(jsonObject.getString("casts"));
+			Log.d(TAG, "主演:"+movieDetailedPojo.getCasts());
 			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

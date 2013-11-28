@@ -146,7 +146,7 @@ public class MainActivity extends ListActivity {
 		//intent.setClass(MainActivity.this, DetailActivity.class);
 		intent.setClass(MainActivity.this, MovieDetailActivity.class);
 		Bundle bundle = new Bundle();
-		bundle.putString("url", mbp.getFirstUrl().toString());
+		bundle.putString("id", mbp.getFirstUrl().toString());
 		bundle.putString("imageurl", mbp.getImageUrl().toString());
 		//bundle.putString("type", "µÁ”∞");
 		intent.putExtras(bundle);

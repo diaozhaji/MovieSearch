@@ -7,24 +7,81 @@ package com.xiaoqiu.entity;
 
 
 public class MovieDetailEntity {
-	
+
+	private String subject_id;		//电影id (这个与豆瓣的API不同)
 	private String title;			//名称
-	private String subject_id;		//电影id
-	private String rating_stars;	//星级
-	private String countries;		//国家
+	private String original_title;	//原名
+	private String aka;				//又名
 	private String rating_average;	//评分
-	private String genres;			//电影类型
-	private String image_medium;	//中图片链接	
-	private String casts;			//演员
-	private String collect_count;	//
-	private String summary;			//描述
+	private String ratings_count;	//评分人数
+	private String wish_count;		//想看人数
+	private String collect_count;	//看过人数	
+	private String image_medium;	//中图片链接  (这个与豆瓣API不同)	
 	private String directors;		//导演
-	private String comments_count;	//
-	private String ratings_count;	//
-	
+	private String countries;		//制片国家/地区
+	private String genres;			//电影类型
+	private String casts;			//演员
+	private String summary;			//描述
+	private String comments_count;	//短评数量
+	private String reviews_count;	//影评数量
+	private String year;			//年代
+	private String summary_segmentation;	//???
+	/*
+	private String subtype;			//条目分类, movie或者tv
+	private String image_small;
+	private String image_large;
+	private String rating_stars;	//星级  ?????
+	private String rating_max;
+	private String rating_min;
+	private String douban_site;
+	private String mobile_url;		//移动版条目页URL
+	private String do_count;		//在看人数，如果是电视剧，默认值为0，如果是电影值为null
+
+	private String seasons_count;	//总季数(tv only)
+	private String current_season;	//当前季数(tv only)
+	private String episodes_count;	//当前季的集数(tv only)
+	private String schedule_url;	//影讯页URL
+
+	 */
 	
 	public String getTitle() {
 		return title;
+	}
+	public String getOriginal_title() {
+		return original_title;
+	}
+	public void setOriginal_title(String original_title) {
+		this.original_title = original_title;
+	}
+	public String getAka() {
+		return aka;
+	}
+	public void setAka(String aka) {
+		this.aka = aka;
+	}
+	public String getWish_count() {
+		return wish_count;
+	}
+	public void setWish_count(String wish_count) {
+		this.wish_count = wish_count;
+	}
+	public String getReviews_count() {
+		return reviews_count;
+	}
+	public void setReviews_count(String reviews_count) {
+		this.reviews_count = reviews_count;
+	}
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
+	public String getSummary_segmentation() {
+		return summary_segmentation;
+	}
+	public void setSummary_segmentation(String summary_segmentation) {
+		this.summary_segmentation = summary_segmentation;
 	}
 	public void setTitle(String title) {
 		this.title = title;
@@ -34,12 +91,6 @@ public class MovieDetailEntity {
 	}
 	public void setSubject_id(String subject_id) {
 		this.subject_id = subject_id;
-	}
-	public String getRating_stars() {
-		return rating_stars;
-	}
-	public void setRating_stars(String rating_stars) {
-		this.rating_stars = rating_stars;
 	}
 	public String getCountries() {
 		return countries;

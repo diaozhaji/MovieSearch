@@ -18,7 +18,7 @@
             android:id="@+id/detail_activity_img"
             android:layout_width="160px"
             android:layout_height="240px"
-            android:src="@drawable/detail_img" />
+            android:src="@drawable/detail_img_loading" />
         <LinearLayout 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,24 +28,27 @@
             android:textSize="16sp"
             >
             <TextView 
+                android:id="@+id/rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="评分:7.6"
+                android:text="评分:"
                 android:textColor="@color/black"
                 />
             <TextView 
+                android:id="@+id/directors"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="导演：林诣彬"
+                android:text="导演："
                 android:textColor="@color/black"
                 />
             <TextView 
+                android:id="@+id/casts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="主演:范迪塞尔、道森强森、米歇尔"
+                android:text="主演:"
                 android:textColor="@color/black"
                 />
             <ImageView 
@@ -77,31 +80,35 @@
             android:layout_marginLeft="10dp"
             >
             <TextView 
+                android:id="@+id/countries"
               	android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="地区：欧美"
+                android:text="地区："
                 android:textSize="14sp"
                 android:textColor="@color/deepdarkgray"
             	/>
             <TextView 
+                android:id="@+id/collect_count"
               	android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="人气：4913273"
+                android:text="人气："
                 android:textSize="14sp"
                 android:textColor="@color/deepdarkgray"
                 />
             <TextView 
+                android:id="@+id/genres"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="类型：动作、惊悚、其他"
+                android:text="类型："
                 android:textSize="14sp"
                 android:textColor="@color/deepdarkgray"
                 />
             <TextView 
+                android:id="@+id/year"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="上映时间： 2011-05-12"
+                android:text="上映时间： "
                 android:textSize="14sp"
                 android:textColor="@color/deepdarkgray"
                 />
@@ -122,8 +129,6 @@
                 android:id="@+id/detail_summary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="　　俄罗斯莫斯科闹市中央，执行押送任务的军方部队遭到一伙训练有素的匪徒袭击，大战过后的现场惨不忍睹，重要的卫星元件遭到劫持。国际刑警霍布斯（道恩·强森 Dwayne Johnson 饰）查明，包括此案在内的一系列案件均系前特种部队军人欧文·肖（卢克·伊万斯 Luke Evans 饰）所为。为了将这群训练有素、老练凶狠的匪徒绳之于法，他辗转找到隐居世外桃源的多米尼克·托雷多（范·迪塞尔 Vin Diesel 饰）助拳。霍布斯开出的条件令人难以拒绝，他不仅可以将托雷多和布莱恩（保罗·沃克 Paul Walker 饰）一伙从前的犯罪记录一笔勾销，此外欧文一伙中竟然还有本该死去的拉蒂（米歇尔·罗德里格兹 Michelle Rodriguez 饰）。 
-　　前所未有的危险战斗，为了安定平凡的生活，这群亡命之徒再上战场……"
                 android:textSize="14sp"
                 android:textColor="@color/deepdarkgray"
                 />

@@ -37,7 +37,13 @@ public class MovieDetailActivity extends Activity{
 	private TextView titleView;
 	private TextView summaryView;
 	private ImageView image;
-	
+	private TextView ratingView;
+	private TextView directorsView;
+	private TextView castsView;
+	private TextView countriesView;
+	private TextView collectView;
+	private TextView genresView;
+	private TextView yearView;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +72,14 @@ public class MovieDetailActivity extends Activity{
 		titleView = (TextView)findViewById(R.id.layout_title);
 		image = (ImageView)findViewById(R.id.detail_activity_img);
 		summaryView = (TextView)findViewById(R.id.detail_summary);
+		ratingView  = (TextView)findViewById(R.id.rating);
+		directorsView = (TextView)findViewById(R.id.directors);
+		castsView = (TextView)findViewById(R.id.casts);
+		countriesView = (TextView)findViewById(R.id.countries);
+		collectView = (TextView)findViewById(R.id.collect_count);
+		genresView  = (TextView)findViewById(R.id.genres);
+		yearView = (TextView)findViewById(R.id.year);
+		
 		
 		proDialog = new ProgressDialog(this);
 		proDialog.setTitle(R.string.loading);
@@ -75,12 +89,11 @@ public class MovieDetailActivity extends Activity{
 
 
 	private void initData() throws IOException {
-		//Bundle bundle = getIntent().getExtras();		
-		//String id = bundle.getString("url");
-		//imageUrl = bundle.getString("imageurl");
-		String id = "3541415";
-		imageUrl = "http://img3.douban.com/mpic/s4356687.jpg";
-		
+		Bundle bundle = getIntent().getExtras();		
+		String id = bundle.getString("id");
+		imageUrl = bundle.getString("imageurl");
+		//String id = "3541415";
+		//imageUrl = "http://img3.douban.com/mpic/s4356687.jpg";		
 		url = "http://192.158.31.250/search/"+id+"/";
 		
 		Log.d(TAG, imageUrl);
@@ -94,9 +107,18 @@ public class MovieDetailActivity extends Activity{
 		@Override
 		public void handleMessage(Message message) {
 			
-			titleView.setText(mMovie.getTitle());	
-			
+			titleView.setText(mMovie.getTitle());			
 			try{
+				
+				ratingView.setText("评分："+mMovie.getRating_average());				
+				directorsView.setText("导演："+mMovie.getDirectors());
+				castsView.setText("演员："+mMovie.getCasts());
+				countriesView.setText("地区："+mMovie.getCountries());
+				collectView.setText("人气："+mMovie.getCollect_count());
+				genresView.setText("类型："+mMovie.getGenres());
+				yearView.setText("上映时间："+mMovie.getYear());
+				
+				
 				String summary = mMovie.getSummary();
 				int maxLen = 220;
 				if (summary.length() > maxLen) {
@@ -111,7 +133,7 @@ public class MovieDetailActivity extends Activity{
 				InputStream is = aryURI.openStream();
 				Bitmap bm = BitmapFactory.decodeStream(is);
 				if (bm == null) {
-					image.setBackgroundColor(R.drawable.detail_img);
+					image.setBackgroundColor(R.drawable.detail_img_loading);
 				}
 				is.close();
 				image.setImageBitmap(bm);
