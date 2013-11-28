@@ -72,7 +72,7 @@ public class InfoAdapter extends BaseAdapter {
 		
 		String str = "";
 		if (mText.equals("电影")) {
-			str = "上映时间:";
+			str = "导演:";
 		}
 		
 		viewHolder.mImageView.setBackgroundResource(R.drawable.rc_item_bg);
