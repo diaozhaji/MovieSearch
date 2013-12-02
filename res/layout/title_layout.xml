@@ -1,22 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
-    <ImageView 
+    android:layout_height="wrap_content" 
+    android:orientation="vertical"
+    >
+    <RelativeLayout 
+        android:id="@+id/title_layout"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitCenter"
-        android:src="@drawable/title_img"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:background="#f7f7f7"
+        >
+        <TextView 
+        	android:id="@+id/layout_title_txt"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textColor="#0a5cad"
+        	android:textSize="22sp"    
+        	android:text="搜索"
+        	android:layout_centerInParent="true"
         />
-    <TextView 
-        android:id="@+id/layout_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="50dp"
-        android:layout_y="5dp"
-        android:textColor="#0a5dad"
-        android:textSize="18sp"    
-        />"
-    
-
-</AbsoluteLayout>
+        
+        <ImageView 
+            android:id="@+id/title_button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentLeft="true"            
+            android:src="@drawable/button_title_back"
+            />
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/title_button_right"
+            />
+         
+    </RelativeLayout>
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#0a5cad"
+        >        
+    </LinearLayout>
+</LinearLayout>

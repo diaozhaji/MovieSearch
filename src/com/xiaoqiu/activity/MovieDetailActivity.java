@@ -13,8 +13,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.xiaoqiu.activity.DetailActivity.LoadData;
 import com.xiaoqiu.entity.MovieDetailEntity;
@@ -45,6 +48,9 @@ public class MovieDetailActivity extends Activity{
 	private TextView genresView;
 	private TextView yearView;
 	
+	//button
+	private ImageView backBtn;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -69,7 +75,19 @@ public class MovieDetailActivity extends Activity{
 	
 	private void initView() {
 		// TODO Auto-generated method stub
-		titleView = (TextView)findViewById(R.id.layout_title);
+		titleView = (TextView)findViewById(R.id.layout_title_txt);
+		
+		backBtn = (ImageView)findViewById(R.id.title_button_back);
+		backBtn.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+			
+		});
+		
 		image = (ImageView)findViewById(R.id.detail_activity_img);
 		summaryView = (TextView)findViewById(R.id.detail_summary);
 		ratingView  = (TextView)findViewById(R.id.rating);
@@ -110,20 +128,20 @@ public class MovieDetailActivity extends Activity{
 			titleView.setText(mMovie.getTitle());			
 			try{
 				
-				ratingView.setText("评分："+mMovie.getRating_average());				
+				ratingView.setText(mMovie.getRating_average());				
 				directorsView.setText("导演："+mMovie.getDirectors());
 				castsView.setText("演员："+mMovie.getCasts());
 				countriesView.setText("地区："+mMovie.getCountries());
 				collectView.setText("人气："+mMovie.getCollect_count());
 				genresView.setText("类型："+mMovie.getGenres());
 				yearView.setText("上映时间："+mMovie.getYear());
-				
-				
+				summaryView.setText("\t"+mMovie.getSummary() + "...");
+				/*
 				String summary = mMovie.getSummary();
 				int maxLen = 220;
 				if (summary.length() > maxLen) {
 					summaryView.setText("\t"+summary.substring(0, maxLen) + "...");
-				}
+				}*/
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
