@@ -60,7 +60,9 @@ public class InfoAdapter extends BaseAdapter {
 			convertView = mInflater.inflate(R.layout.all_single_show, null);
 			viewHolder = new ViewHolder();
 			viewHolder.mTextView = (TextView) convertView
-					.findViewById(R.id.allname);
+					.findViewById(R.id.all_title);
+			viewHolder.contentTextView = (TextView)convertView
+					.findViewById(R.id.all_content);
 			viewHolder.mImageView = (ImageView) convertView
 					.findViewById(R.id.allimageview);
 			convertView.setTag(viewHolder);
@@ -74,11 +76,16 @@ public class InfoAdapter extends BaseAdapter {
 		if (mText.equals("电影")) {
 			str = "导演:";
 		}
+		viewHolder.mTextView.setText(movieBriefPojo.getMovieName());
+		viewHolder.contentTextView.setText("导演：" + movieBriefPojo.getAuthorName());
 		
 		viewHolder.mImageView.setBackgroundResource(R.drawable.rc_item_bg);
+		/*
 		viewHolder.mTextView.setText(position + 1 + "." + movieBriefPojo.getMovieName() + "\n" + str
 				+ movieBriefPojo.getAuthorName());
-
+		 */
+		
+		
 		String url = movieBriefPojo.getImageUrl();
 		
 		if (!mBusy) {
@@ -92,6 +99,7 @@ public class InfoAdapter extends BaseAdapter {
 
 	static class ViewHolder {
 		TextView mTextView;
+		TextView contentTextView;
 		ImageView mImageView;
 	}
 

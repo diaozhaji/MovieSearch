@@ -3,37 +3,44 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="@color/white"
+    android:background="@drawable/list_item"
     android:padding="5px" >
  
     <ImageView
         android:id="@+id/allimageview"
-     	android:layout_width="100px"
-     	android:layout_height="140px"
-     	android:background="@drawable/rc_item_bg"
-     	android:layout_margin="5dp"
+     	android:layout_width="140px"
+     	android:layout_height="180px"
+     	android:layout_marginTop="10dp"
+     	android:layout_marginLeft="15dp"
+     	android:layout_marginBottom="10dp"
         android:scaleType="fitXY" />
     
-    <RelativeLayout 
+    <LinearLayout 
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="20dp"
+        >
         <TextView
-        	android:id="@+id/allname"
+        	android:id="@+id/all_title"
         	android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
-        	android:layout_marginLeft="10px"
-        	android:textColor="@color/black"
-        	android:textSize="16sp" />
-        <ImageView 
-            android:layout_width="wrap_content"
-    		android:layout_height="wrap_content"
-    		android:layout_centerVertical="true"
-    		android:layout_alignParentRight="true"
-    		android:src="@drawable/triangle"
+        	android:layout_marginLeft="10dp"
+        	android:textColor="#494949"
+        	android:textSize="20sp" />
+        <TextView 
+            android:id="@+id/all_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#494949"
+            android:textSize="14sp"
             />
         
-    </RelativeLayout>
+    </LinearLayout>
 
     
 
