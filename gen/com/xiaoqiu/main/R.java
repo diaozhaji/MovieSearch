@@ -875,84 +875,89 @@ public final class R {
         public static final int icon_grey=0x7f02000e;
         public static final int letter_search_icon=0x7f02000f;
         public static final int list_item=0x7f020010;
-        public static final int list_line=0x7f020011;
-        public static final int list_search_left=0x7f020012;
-        public static final int msg_center_popover_bg=0x7f020013;
-        public static final int nopicture=0x7f020014;
-        public static final int panel_bg=0x7f020015;
-        public static final int rc_item_bg=0x7f020016;
-        public static final int registsquare_list_item_text=0x7f020017;
-        public static final int scrollbar=0x7f020018;
-        public static final int search_button_clear=0x7f020019;
-        public static final int search_button_search=0x7f02001a;
-        public static final int search_button_search_bg=0x7f02001b;
-        public static final int search_button_search_mike=0x7f02001c;
-        public static final int search_clear_btn=0x7f02001d;
-        public static final int search_clear_btn_down=0x7f02001e;
-        public static final int search_clear_btn_normal=0x7f02001f;
-        public static final int search_edittext_bg=0x7f020020;
-        public static final int search_icon=0x7f020021;
-        public static final int search_input=0x7f020022;
-        public static final int search_text_bg=0x7f020023;
-        public static final int search_text_search=0x7f020024;
-        public static final int search_title_button_nor=0x7f020025;
-        public static final int search_title_button_pressed=0x7f020026;
-        public static final int search_user_bg_nor=0x7f020027;
-        public static final int search_user_bg_press=0x7f020028;
-        public static final int search_weibo_bg_nor=0x7f020029;
-        public static final int search_weibo_bg_press=0x7f02002a;
-        public static final int searchbar_background=0x7f02002b;
-        public static final int searh_button_back=0x7f02002c;
-        public static final int splash_img=0x7f02002d;
-        public static final int square_search_filter_bg=0x7f02002e;
-        public static final int square_search_filter_nor=0x7f02002f;
-        public static final int square_search_filter_press=0x7f020030;
-        public static final int title_button=0x7f020031;
-        public static final int title_button_back=0x7f020032;
-        public static final int title_button_back_press=0x7f020033;
-        public static final int title_button_normal=0x7f020034;
-        public static final int title_button_right=0x7f020035;
-        public static final int title_button_selected=0x7f020036;
-        public static final int title_img=0x7f020037;
-        public static final int triangle=0x7f020038;
-        public static final int triangle_page=0x7f020039;
-        public static final int widget_block_selected=0x7f02003a;
+        public static final int list_item_press=0x7f020011;
+        public static final int list_item_xml=0x7f020012;
+        public static final int list_line=0x7f020013;
+        public static final int list_search_button=0x7f020014;
+        public static final int list_search_left=0x7f020015;
+        public static final int msg_center_popover_bg=0x7f020016;
+        public static final int nopicture=0x7f020017;
+        public static final int panel_bg=0x7f020018;
+        public static final int rc_item_bg=0x7f020019;
+        public static final int registsquare_list_item_text=0x7f02001a;
+        public static final int scrollbar=0x7f02001b;
+        public static final int search_button_clear=0x7f02001c;
+        public static final int search_button_search=0x7f02001d;
+        public static final int search_button_search_bg=0x7f02001e;
+        public static final int search_button_search_mike=0x7f02001f;
+        public static final int search_button_search_press=0x7f020020;
+        public static final int search_clear_btn=0x7f020021;
+        public static final int search_clear_btn_down=0x7f020022;
+        public static final int search_clear_btn_normal=0x7f020023;
+        public static final int search_edittext_bg=0x7f020024;
+        public static final int search_icon=0x7f020025;
+        public static final int search_input=0x7f020026;
+        public static final int search_text_bg=0x7f020027;
+        public static final int search_text_search=0x7f020028;
+        public static final int search_title_button_nor=0x7f020029;
+        public static final int search_title_button_pressed=0x7f02002a;
+        public static final int search_user_bg_nor=0x7f02002b;
+        public static final int search_user_bg_press=0x7f02002c;
+        public static final int search_weibo_bg_nor=0x7f02002d;
+        public static final int search_weibo_bg_press=0x7f02002e;
+        public static final int searchbar_background=0x7f02002f;
+        public static final int searh_button_back=0x7f020030;
+        public static final int splash_img=0x7f020031;
+        public static final int square_search_filter_bg=0x7f020032;
+        public static final int square_search_filter_nor=0x7f020033;
+        public static final int square_search_filter_press=0x7f020034;
+        public static final int title_button=0x7f020035;
+        public static final int title_button_back=0x7f020036;
+        public static final int title_button_back_press=0x7f020037;
+        public static final int title_button_normal=0x7f020038;
+        public static final int title_button_right=0x7f020039;
+        public static final int title_button_right_press=0x7f02003a;
+        public static final int title_button_selected=0x7f02003b;
+        public static final int title_img=0x7f02003c;
+        public static final int triangle=0x7f02003d;
+        public static final int triangle_page=0x7f02003e;
+        public static final int widget_block_selected=0x7f02003f;
     }
     public static final class id {
-        public static final int ScrollView01=0x7f08000d;
-        public static final int all_content=0x7f080002;
-        public static final int all_title=0x7f080001;
-        public static final int allimageview=0x7f080000;
-        public static final int btnCancel=0x7f080019;
-        public static final int casts=0x7f080007;
-        public static final int collect_count=0x7f080009;
-        public static final int countries=0x7f080008;
-        public static final int detail_activity_img=0x7f080004;
-        public static final int detail_summary=0x7f08000c;
-        public static final int directors=0x7f080006;
-        public static final int edittext=0x7f080014;
-        public static final int etSearchText=0x7f08001d;
-        public static final int genres=0x7f08000a;
-        public static final int ivDelete=0x7f08001e;
-        public static final int ivSearchIcon=0x7f08001b;
-        public static final int layout_title_txt=0x7f080020;
-        public static final int lySearchInput=0x7f08001a;
-        public static final int rating=0x7f080005;
-        public static final int search_button=0x7f080015;
-        public static final int search_logo=0x7f080013;
-        public static final int search_text_layout=0x7f080012;
-        public static final int searchbar=0x7f080011;
-        public static final int singleimageview=0x7f08000e;
-        public static final int singletext=0x7f080010;
-        public static final int singletextview=0x7f08000f;
-        public static final int splash_img=0x7f080016;
-        public static final int splash_text=0x7f080017;
-        public static final int testtt=0x7f080018;
-        public static final int text1=0x7f080003;
-        public static final int title_button_back=0x7f080021;
-        public static final int title_layout=0x7f08001f;
-        public static final int tvSearchText=0x7f08001c;
-        public static final int year=0x7f08000b;
+        public static final int ScrollView01=0x7f09000d;
+        public static final int all_content=0x7f090002;
+        public static final int all_title=0x7f090001;
+        public static final int allimageview=0x7f090000;
+        public static final int btnCancel=0x7f090019;
+        public static final int casts=0x7f090007;
+        public static final int collect_count=0x7f090009;
+        public static final int countries=0x7f090008;
+        public static final int detail_activity_img=0x7f090004;
+        public static final int detail_summary=0x7f09000c;
+        public static final int directors=0x7f090006;
+        public static final int edittext=0x7f090014;
+        public static final int etSearchText=0x7f09001d;
+        public static final int genres=0x7f09000a;
+        public static final int ivDelete=0x7f09001e;
+        public static final int ivSearchIcon=0x7f09001b;
+        public static final int layout_title_txt=0x7f090020;
+        public static final int lySearchInput=0x7f09001a;
+        public static final int rating=0x7f090005;
+        public static final int search_button=0x7f090015;
+        public static final int search_logo=0x7f090013;
+        public static final int search_text_layout=0x7f090012;
+        public static final int searchbar=0x7f090011;
+        public static final int singleimageview=0x7f09000e;
+        public static final int singletext=0x7f090010;
+        public static final int singletextview=0x7f09000f;
+        public static final int splash_img=0x7f090016;
+        public static final int splash_text=0x7f090017;
+        public static final int testtt=0x7f090018;
+        public static final int text1=0x7f090003;
+        public static final int title_button_back=0x7f090021;
+        public static final int title_layout=0x7f09001f;
+        public static final int tvSearchText=0x7f09001c;
+        public static final int year=0x7f09000b;
     }
     public static final class layout {
         public static final int all_single_show=0x7f030000;
@@ -973,5 +978,22 @@ public final class R {
         public static final int search_label=0x7f070003;
         public static final int search_searchbutton=0x7f070001;
         public static final int square_search_filter_all=0x7f070002;
+    }
+    public static final class style {
+        /** 
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+         */
+        public static final int AppBaseTheme=0x7f080000;
+        /**  Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+         */
+        public static final int AppTheme=0x7f080001;
     }
 }

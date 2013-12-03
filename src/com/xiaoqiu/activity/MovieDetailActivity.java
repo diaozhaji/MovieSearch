@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ public class MovieDetailActivity extends Activity{
 	
 	private MovieDetailEntity mMovie;
 	private MovieDetailInfoLoader movieInfo;
+	
 	//Views
 	private TextView titleView;
 	private TextView summaryView;
@@ -87,6 +89,7 @@ public class MovieDetailActivity extends Activity{
 			}
 			
 		});
+		
 		
 		image = (ImageView)findViewById(R.id.detail_activity_img);
 		summaryView = (TextView)findViewById(R.id.detail_summary);
